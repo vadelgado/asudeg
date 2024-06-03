@@ -1,14 +1,9 @@
-import { Link, Head } from '@inertiajs/react';
-import { Button } from '@nextui-org/react';
+import React from "react";
+import { Link, Head } from "@inertiajs/react";
+import { Button } from "@nextui-org/react";
+import Footer from "@/sections/Footer";
 
-export default function Welcome({ auth, laravelVersion, phpVersion }) {
-    const handleImageError = () => {
-        document.getElementById('screenshot-container')?.classList.add('!hidden');
-        document.getElementById('docs-card')?.classList.add('!row-span-1');
-        document.getElementById('docs-card-content')?.classList.add('!flex-row');
-        document.getElementById('background')?.classList.add('!hidden');
-    };
-
+export default function Welcome({ auth }) {
     return (
         <>
             <Head title="Welcome" />
@@ -37,7 +32,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             <nav className="flex justify-end flex-1 -mx-3">
                                 {auth.user ? (
                                     <Link
-                                        href={route('dashboard')}
+                                        href={route("dashboard")}
                                         className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                     >
                                         Dashboard
@@ -45,13 +40,13 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                 ) : (
                                     <>
                                         <Link
-                                            href={route('login')}
+                                            href={route("login")}
                                             className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                         >
                                             Log in
                                         </Link>
                                         <Link
-                                            href={route('register')}
+                                            href={route("register")}
                                             className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                         >
                                             Register
@@ -62,12 +57,10 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         </header>
 
                         <main className="mt-6">
-                        <Button>Click Me</Button>
+                            <Button>Click Me</Button>
                         </main>
 
-                        <footer className="py-16 text-sm text-center text-black dark:text-white/70">
-                            Laravel v{laravelVersion} (PHP v{phpVersion})
-                        </footer>
+                        <Footer />
                     </div>
                 </div>
             </div>
